@@ -1,0 +1,52 @@
+﻿@page
+@model MyStore.Pages.Clients.ReadModel
+@{
+
+}
+
+<link href="~/css/styles.css" rel="stylesheet" />
+<br>
+<h2><center>MY CLIENTS</center></h2>
+<a class="btn btn-primary btn-sm" href="/Clients/Create" >New Client</a>
+
+<table class="table">
+    <thead>
+        <!-- Add this inside the <head> section of your Razor view -->
+       
+
+        <tr>
+
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Client_Type</th>
+            <th>created_at</th>
+            <th>Action</th>
+           
+
+        </tr>
+    
+    </thead>
+  <tbody>
+      @foreach(var item in Model.listClients)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>@item.client_Type</td>
+                <td>@item.created_at</td>
+
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Clients/Update?id=@item.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Clients/Delete?id=@item.id">Delete</a>
+                </td>
+
+            </tr>
+         }
+    </tbody>
+</table>

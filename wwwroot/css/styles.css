@@ -1,0 +1,49 @@
+﻿/* styles.css */
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: antiquewhite;
+
+}
+
+.form-label, .form-control, .btn {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Styles for the primary button */
+.btn {
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Small size button */
+.btn-sm {
+    font-size: 14px;
+}
+
+/* Hover effect */
+.btn:hover {
+    background-color: forestgreen;
+}
+
+/* Active effect */
+.btn:active {
+    background-color: #004080;
+}
+
+
+h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+
+    /* Styles for the footer */

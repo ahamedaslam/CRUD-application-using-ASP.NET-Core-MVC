@@ -1,0 +1,74 @@
+﻿@page
+@model MyStore.Pages.Clients.CreateModel
+
+<br>
+<h2><center>New Client</center></h2>
+<link href="~/css/styles.css" rel="stylesheet" />
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+}
+
+
+<div class="text-center mx-auto" style="max-width: 600px;">
+    <!-- Center the form on the page -->
+    <form method="post" class="row g-3">
+        <input type="hidden" name="id" value="@Model.clientInfo.id" />
+
+        <div class="col-md-12">
+            <label class="form-label"><b>Name</b></label>
+            <input type="text" class="form-control" name="name" value="@Model.clientInfo.name" />
+        </div>
+
+        <div class="col-md-12">
+            <label class="form-label"><b>Email</b></label>
+            <input type="text" class="form-control" name="email" value="@Model.clientInfo.email" />
+        </div>
+
+        <div class="col-md-12">
+            <label class="form-label"><b>Phone</b></label>
+            <input type="text" class="form-control" name="phone" value="@Model.clientInfo.phone" />
+        </div>
+
+        <div class="col-md-12">
+            <label class="form-label"><b>Address</b></label>
+            <input type="text" class="form-control" name="address" value="@Model.clientInfo.address" />
+        </div>
+
+        <div class="col-md-12">
+            <label class="form-label"><b>Client_Type</b></label>
+            <select class="form-control" name="client_type" id="clientTypeSelect">
+                <option value="Indian">Indian</option>
+                <option value="International">International</option>
+            </select>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var clientType = '@Model.clientInfo.client_Type';
+                $("#clientTypeSelect").val(clientType);
+            });
+        </script>
+
+        @if (Model.successMessage.Length > 0)
+        {
+            <div class="col-md-12">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                </div>
+            </div>
+        }
+
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+        <div class="col-md-12">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+  
+</form>

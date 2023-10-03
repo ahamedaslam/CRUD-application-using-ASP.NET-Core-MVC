@@ -1,0 +1,48 @@
+﻿@page
+@using System.Data.SqlClient;
+
+@{
+    string id = Request.Query["id"]; //To read the id of the employee
+    string deleteMessage = ""; // Initialize a variable to store the delete message
+
+    try
+    {
+        string connectionString = "Data Source=MY-PC;Initial Catalog=mystore;Integrated Security=True";
+
+        //To create a sql connection object
+        using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+        {
+            sqlConnection.Open();
+
+            //The Open() method is called on the
+            //sqlConnection to establish a connection
+            //to the database.
+
+            //QUERY ALL THE ROWS FROM THE TABLE
+            string sql = "DELETE from clients WHERE id=@id";
+
+            using (SqlCommand command = new SqlCommand(sql, sqlConnection))
+            {
+                command.Parameters.AddWithValue("@id", id);
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    deleteMessage = "Deleted successfully"; // Set the delete message if data was deleted
+                }
+                else
+                {
+                    deleteMessage = "No data found with the given ID"; // Set a different message if no data was found
+                }
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        deleteMessage = "Exception: " + ex.ToString(); // Set the delete message to the exception message
+    }
+}
+
+<h3>@deleteMessage</h3>
+
+<!-- Add the rest of your page content here -->
